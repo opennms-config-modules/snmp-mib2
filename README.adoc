@@ -35,5 +35,5 @@ ln -s ../modules-available/snmp-mib2/datacollection/*.xml .
 [source, bash]
 ----
 cd $OPENNMS_HOME/etc/snmp-graph.properties.d
-ln -s ../modules-available/net-snmp/graphs/*.properties .
+ln -s ../modules-available/snmp-mib2/graphs/*.properties .
 ----

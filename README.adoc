@@ -1,0 +1,39 @@
+# SNMP MIB II
+
+OpenNMS configuration module for standard MIB II compatible SNMP agents.
+
+## Installation
+
+.Download and install from GitHub
+[source, bash]
+----
+cd $OPENNMS_HOME/etc/modules-available
+git clone https://github.com/opennms-config-modules/snmp-mib2.git
+----
+
+### Datacollection
+
+.Install datacollection configuration
+[source, bash]
+----
+cd $OPENNMS_HOME/etc/datacollection
+ln -s ../modules-available/snmp-mib2/datacollection/*.xml .
+----
+
+.Include in datacollection-config.xml
+[source, xml]
+----
+<include-collection dataCollectionGroup="SNMP-MIB2-Host-Resources"/>
+<include-collection dataCollectionGroup="SNMP-MIB2-Network-Interfaces"/>
+<include-collection dataCollectionGroup="SNMP-MIB2-Protocols"/>
+<include-collection dataCollectionGroup="SNMP-MIB2-UPS"/>
+----
+
+### Graph report definitions
+
+.Install graph report definitions
+[source, bash]
+----
+cd $OPENNMS_HOME/etc/snmp-graph.properties.d
+ln -s ../modules-available/net-snmp/graphs/*.properties .
+----

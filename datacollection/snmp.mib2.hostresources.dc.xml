@@ -18,7 +18,7 @@
         <persistenceSelectorStrategy class="org.opennms.netmgt.collectd.PersistRegexSelectorStrategy">
             <parameter key="match-expression" value="(#hrDeviceType == '.1.3.6.1.2.1.25.3.1.3')"/>
         </persistenceSelectorStrategy>
-        <storageStrategy class="org.opennms.netmgt.dao.support.IndexStorageStrategy"/>
+        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
     </resourceType>
 
     <!--
@@ -29,7 +29,7 @@
     <resourceType name="hrStorageNonUnique" label="Storage (SNMP MIB-2 Host Resources, non-unique descriptions)"
                   resourceLabel="${hrStorageDescr} (index ${index})">
         <persistenceSelectorStrategy class="org.opennms.netmgt.collectd.PersistAllSelectorStrategy"/>
-        <storageStrategy class="org.opennms.netmgt.dao.support.IndexStorageStrategy"/>
+        <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
     </resourceType>
 
     <group name="mib2-host-resources-memory" ifType="ignore">

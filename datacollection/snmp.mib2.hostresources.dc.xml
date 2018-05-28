@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<datacollection-group name="SNMP-MIB2-Host-Resources">
+<datacollection-group xmlns="https://xmlns.opennms.org/xsd/config/datacollection" name="SNMP-MIB2-Host-Resources">
     <resourceType name="hrStorageIndex" label="Storage (SNMP MIB-2 Host Resources)"
                   resourceLabel="${hrStorageDescr}">
         <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>

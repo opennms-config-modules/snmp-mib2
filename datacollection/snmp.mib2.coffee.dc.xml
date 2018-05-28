@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<datacollection-group name="SNMP-MIB2-Coffee">
+<datacollection-group xmlns="https://xmlns.opennms.org/xsd/config/datacollection" name="SNMP-MIB2-Coffee">
     <group name="mib2-coffee-rfc2325" ifType="ignore">
         <mibObj oid=".1.3.6.1.2.1.10.132.2" instance="0" alias="coffeePotCapacity" type="integer"/>
         <mibObj oid=".1.3.6.1.2.1.10.132.4.1.2" instance="0" alias="coffeePotLevel" type="integer"/>

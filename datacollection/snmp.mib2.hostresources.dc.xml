@@ -1,6 +1,8 @@
 <datacollection-group xmlns="https://xmlns.opennms.org/xsd/config/datacollection" name="SNMP-MIB2-Host-Resources">
     <resourceType name="hrStorageIndex" label="Storage (SNMP MIB-2 Host Resources)" resourceLabel="${hrStorageDescr}">
-        <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+        <persistenceSelectorStrategy class="org.opennms.netmgt.collectd.PersistRegexSelectorStrategy">
+            <parameter key="match-expression" value="not(#hrStorageDescr matches '.*(var\/lib\/docker\/containers).*')"/>
+        </persistenceSelectorStrategy>
         <storageStrategy class="org.opennms.netmgt.dao.support.SiblingColumnStorageStrategy">
             <parameter key="sibling-column-name" value="hrStorageDescr"/>
             <parameter key="replace-first" value="s/^-$/_root_fs/"/>

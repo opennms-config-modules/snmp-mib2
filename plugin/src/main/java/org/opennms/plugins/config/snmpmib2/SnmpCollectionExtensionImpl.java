@@ -30,14 +30,14 @@ package org.opennms.plugins.config.snmpmib2;
 
 import java.util.List;
 
-import org.opennms.integration.api.v1.config.datacollection.SnmpCollectionConfigExtension;
+import org.opennms.integration.api.v1.config.datacollection.SnmpCollectionExtension;
 import org.opennms.integration.api.v1.config.datacollection.SnmpDataCollection;
 import org.opennms.integration.api.xml.ClasspathSnmpDataCollectionLoader;
 
-public class SnmpCollectionExtension implements SnmpCollectionConfigExtension {
+public class SnmpCollectionExtensionImpl implements SnmpCollectionExtension {
 
     private final ClasspathSnmpDataCollectionLoader snmpDataCollectionLoader =
-            new ClasspathSnmpDataCollectionLoader(SnmpCollectionExtension.class,
+            new ClasspathSnmpDataCollectionLoader(SnmpCollectionExtensionImpl.class,
                     "snmp.mib2.coffee.dc.xml",
                     "snmp.mib2.hostresources.dc.xml",
                     "snmp.mib2.network.interfaces.dc.xml",

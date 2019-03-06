@@ -10,8 +10,8 @@
     </service>
 
     <!-- SNMP Datacollection -->
-    <service interface="org.opennms.integration.api.v1.config.datacollection.SnmpCollectionConfigExtension">
-        <bean class="org.opennms.plugins.config.snmpmib2.SnmpCollectionExtension"/>
+    <service interface="org.opennms.integration.api.v1.config.datacollection.SnmpCollectionExtension">
+        <bean class="org.opennms.plugins.config.snmpmib2.SnmpCollectionExtensionImpl"/>
     </service>
 
     <!-- Graphs -->

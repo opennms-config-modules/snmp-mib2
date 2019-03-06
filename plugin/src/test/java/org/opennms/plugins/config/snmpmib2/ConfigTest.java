@@ -38,7 +38,7 @@ public class ConfigTest {
 
     @Test
     public void canLoadSnmpCollectionExtension() {
-        SnmpCollectionExtension snmpCollectionExtension = new SnmpCollectionExtension();
+        SnmpCollectionExtensionImpl snmpCollectionExtension = new SnmpCollectionExtensionImpl();
         assertThat(snmpCollectionExtension.getSnmpDataCollectionGroups(), hasSize(greaterThanOrEqualTo(1)));
     }
 

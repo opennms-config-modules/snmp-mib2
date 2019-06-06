@@ -11,35 +11,37 @@ Running OpenNMS *NIX operating system
 
 == Installation
 
-.Download and install from GitHub
+.Clone from GitHub
 [source, bash]
 ----
 mkdir ${HOME}/opennms-config-workspace
 cd ${HOME}/opennms-config-workspace
-git clone https://github.com/opennms-config-modules/snmp-mib2.git
+git clone https://github.com/j-white/snmp-mib2
 ----
 
-=== Data Collection
-
-.Install datacollection configuration
+.Compile and install
 [source, bash]
 ----
-cp ${HOME}/opennms-config-workspace/snmp-mib2/datacollection/*.xml ${OPENNMS_HOME}/etc/datacollection
+cd snmp-mib2
+mvn install
 ----
 
-.Include in datacollection-config.xml
+.Disable built-in MIB2 datacollection datacollection-config.xml
 [source, xml]
 ----
-<include-collection dataCollectionGroup="SNMP-MIB2-Host-Resources"/>
-<include-collection dataCollectionGroup="SNMP-MIB2-Network-Interfaces"/>
-<include-collection dataCollectionGroup="SNMP-MIB2-Protocols"/>
-<include-collection dataCollectionGroup="SNMP-MIB2-UPS"/>
+<!-- <include-collection dataCollectionGroup="MIB2"/> -->
 ----
 
-=== Graph Report Definitions
+.Disable built-in MIB2 datacollection datacollection-config.xml
+[source, xml]
+----
+mv etc/datacollection/mib2.xml etc/examples/
+mv etc/snmp-graph.properties.d/mib2-graph.properties etc/examples/
+----
 
-.Install graph report definitions
+.Install the plugin
 [source, bash]
 ----
-cp ${HOME}/opennms-config-workspace/snmp-mib2/graphs/*.properties ${OPENNMS_HOME}/etc/snmp-graph.properties.d
+feature:repo-add mvn:org.opennms.plugins.config/snmp-mib2-features/1.0.0-SNAPSHOT/xml
+feature:install opennms-plugins-config-snmp-mib2
 ----

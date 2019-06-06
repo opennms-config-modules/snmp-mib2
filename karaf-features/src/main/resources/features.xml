@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features name="openmms-plugins-config-snmp-mib2-features" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+    <repository>mvn:org.opennms.integration.api/karaf-features/${opennms.api.version}/xml</repository>
+
+    <feature name="opennms-plugins-config-snmp-mib2" description="OpenNMS :: Plugins :: Config :: SNMP MIB-2" version="${project.version}">
+        <feature dependency="true">aries-blueprint</feature>
+        <feature version="${opennms.api.version}" dependency="true">opennms-integration-api</feature>
+        <bundle>mvn:org.opennms.plugins.config/snmp-mib2-plugin/${project.version}</bundle>
+    </feature>
+
+</features>

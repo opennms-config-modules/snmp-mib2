@@ -1,0 +1,28 @@
+version: 2.1
+
+executors:
+  maven-executor:
+    docker:
+      - image: opennms/maven:jdk8_3.6.1
+
+workflows:
+  # Run build-jobs for all branches and any tag
+  build-jobs:
+    jobs:
+      - build
+
+jobs:
+  build:
+    executor: maven-executor
+    steps:
+      - checkout
+      - run:
+          name: Build configuration module
+          command: |
+            mvn install
+      - store_artifacts:
+          path: ./karaf-features/target/classes/features.xml
+          destination: features.xml
+      - store_artifacts:
+          path: ./plugin/target/snmp-mib2-plugin-1.0.0-SNAPSHOT.jar
+          destination: snmp-mib2-plugin.jar
